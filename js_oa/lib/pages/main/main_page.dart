@@ -33,8 +33,18 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    print(1111);
     return Scaffold(
       backgroundColor: Colors.white,
+      // body: IndexedStack(
+      //   index: currentIndex,
+      //   children: [
+      //     WorkspacePage(),
+      //     ContactPage(),
+      //     MessagePage(),
+      //     MinePage(),
+      //   ],
+      // ),
       body: LazyIndexStack(
         index: currentIndex,
         children: [

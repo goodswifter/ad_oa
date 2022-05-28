@@ -72,8 +72,11 @@ class NotificationManager {
 
   showNotification({V2TimMessage? msg, String? title, String? body}) async {
     var androidDetails = AndroidNotificationDetails(
-        "channelId", "Local Notification", "通知描述",
-        importance: Importance.high);
+      "channelId",
+      "Local Notification",
+      channelDescription: "通知描述",
+      importance: Importance.high,
+    );
     var iosDetails = IOSNotificationDetails();
     var generalNotificationDetails =
         NotificationDetails(android: androidDetails, iOS: iosDetails);

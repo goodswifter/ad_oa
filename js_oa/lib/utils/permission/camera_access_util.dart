@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wechat_camera_picker/wechat_camera_picker.dart';
-
 import 'permission_util.dart';
 
 ///
@@ -27,8 +26,10 @@ class CameraAccessUtil {
     PermissionStatus photosStatus = statuses[Permission.photos]!;
     if (cameraStatus == PermissionStatus.granted &&
         photosStatus == PermissionStatus.granted) {
-      assetEntity = await CameraPicker.pickFromCamera(context,
-          enableRecording: enableRecording);
+      assetEntity = await CameraPicker.pickFromCamera(
+        context,
+        pickerConfig: CameraPickerConfig(enableRecording: enableRecording),
+      );
       return assetEntity;
     } else if (!isFirstAccessCamera || !isFirstAccessPhotos) {
       // 只要相册和相机都不是第一次访问, 就提示相机权限未开启

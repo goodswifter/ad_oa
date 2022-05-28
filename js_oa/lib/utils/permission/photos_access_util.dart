@@ -34,8 +34,10 @@ class PhotosAccessUtil {
     if (photosStatus == PermissionStatus.granted) {
       assets = await AssetPicker.pickAssets(
         context,
-        maxAssets: maxAssetsCount,
-        requestType: requestType,
+        pickerConfig: AssetPickerConfig(
+          maxAssets: maxAssetsCount,
+          requestType: requestType,
+        ),
       );
     } else if (!isFirstAccessPhotos) {
       Get.toNamed(AppRoutes.noAccessPhotos);
